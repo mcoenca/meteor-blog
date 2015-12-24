@@ -9,7 +9,7 @@
           <a href="#" data-action="new-blog" class="btn btn-default">
             <i class="fa fa-plus"></i> {{BlogLanguage.addPost}}
           </a>
-          <select data-action="filtering" class="form-control">
+          <select data-action="filtering" class="browser-default form-control">
             <option value="all">{{BlogLanguage.allPosts}}</option>
             <option value="mine">{{BlogLanguage.myPosts}}</option>
           </select>
@@ -54,11 +54,14 @@
 </template>
 
 <template name="blogAdminVisibleColumn">
-  <select data-action="visibility" class="form-control input-sm">
+<!-- Making this so materialize do not erase select -->
+  <div class="input-field">
+  <select data-action="visibility" class="browser-default form-control input-sm">
     <option value="draft" selected={{isSelected "draft"}}>{{BlogLanguage.postVisibilityAdmins}}</option>
     <option value="private" selected={{isSelected "private"}}>{{BlogLanguage.postVisibilityLink}}</option>
     <option value="public" selected={{isSelected "public"}}>{{BlogLanguage.postVisibilityAnyone}}</option>
   </select>
+  </div>
 </template>
 
 <template name="blogAdminEditColumn">
