@@ -5,22 +5,28 @@
         {{> blogShowFeaturedImage}}
       {{/if}}
     {{/with}}
-    {{#if blogReady}}
-      {{#with post}}
-        {{> blogShowBody}}
-      {{else}}
-        {{> Template.dynamic template=notFound}}
-      {{/with}}
-    {{else}}
-      {{> blogLoading}}
-    {{/if}}
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-11 col-md-8 col-md-offset-2">
+          {{#if blogReady}}
+            {{#with post}}
+              {{> blogShowBody}}
+            {{else}}
+              {{> Template.dynamic template=notFound}}
+            {{/with}}
+          {{else}}
+            {{> blogLoading}}
+          {{/if}}
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <template name="blogShowBody">
   <div class="meteor-blog-post">
     <div class="meteor-blog-post-main">
-      {{#unless titleBackground}}
+      <!-- {{#unless titleBackground}} -->
         <h1 class="meteor-blog-post-title text-center">
           {{title}}
         </h1>
@@ -30,9 +36,11 @@
              --
           {{/if}}
           {{ BlogLanguage.metaAuthorBy }} {{authorName}} {{ BlogLanguage.metaAuthorOn }} {{blogFormatDate publishedAt}}
-          <!-- {{> blogTags }} -->
+          <div class=".meteor-blog-post-tags">
+            {{> blogTags }}
+          </div>
         </div>
-      {{/unless}}
+      <!-- {{/unless}} -->
       <div id="commentable-area">
         {{{html}}}
       </div>
@@ -46,30 +54,34 @@
 </template>
 
 <template name="blogShowFeaturedImage">
-  <div class="meteor-blog-featured-image {{#if fullWidthFeaturedImage}}meteor-blog-full-width-image{{else}}meteor-blog-regular-image{{/if}}">
-    <div class="meteor-blog-aspect-ratio-placeholder" style="{{#unless fullWidthFeaturedImage}}width: {{featuredImageWidth}}px; height: {{featuredImageHeight}}px;{{/unless}}">
-      <img src="{{featuredImage}}" alt="" class="img-responsive center-block">
-      {{#if titleBackground}}
-        <div class="meteor-blog-background-title">
-          <div class="center-block">
-            <h1 class="text-center">
-              {{title}}
-              {{#if isAdmin}}
-                 <small><a href="#" data-action="edit-post">{{ BlogLanguage.edit }}</a></small>
-              {{/if}}
-            </h1>
-            <div class="meteor-blog-post-meta text-center">
-              {{ BlogLanguage.metaAuthorBy }} {{authorName}} {{ BlogLanguage.metaAuthorOn }} {{blogFormatDate publishedAt}}
-              {{> blogTags }}
+  <div class="meteor-blog-featured-image ">
+  <!-- was in previous class: {{#if fullWidthFeaturedImage}}meteor-blog-full-width-image{{else}}meteor-blog-regular-image{{/if}} -->
+    <div class="meteor-blog-aspect-ratio-placeholder-container" >
+      <div class="meteor-blog-aspect-ratio-placeholder" >
+      <!-- was in previous style: style="{{#unless fullWidthFeaturedImage}}width: {{featuredImageWidth}}px; height: {{featuredImageHeight}}px;{{/unless}}" -->
+        <img src="{{featuredImage}}" alt="" class="img-responsive center-block">
+        <!-- {{#if titleBackground}}
+          <div class="meteor-blog-background-title">
+            <div class="center-block">
+              <h1 class="text-center">
+                {{title}}
+                {{#if isAdmin}}
+                   <small><a href="#" data-action="edit-post">{{ BlogLanguage.edit }}</a></small>
+                {{/if}}
+              </h1>
+              <div class="meteor-blog-post-meta text-center">
+                {{ BlogLanguage.metaAuthorBy }} {{authorName}} {{ BlogLanguage.metaAuthorOn }} {{blogFormatDate publishedAt}}
+                {{> blogTags }}
+              </div>
             </div>
           </div>
-        </div>
-      {{/if}}
+        {{/if}} -->
+      </div>
     </div>
   </div>
-  {{#if fullWidthFeaturedImage}}
+<!--   {{#if fullWidthFeaturedImage}}
     <div class="meteor-blog-aspect-ratio-fill" style="height: {{fullWidthFeaturedImageHeight}}px;"></div>
-  {{/if}}
+  {{/if}} -->
 </template>
 
 <template name="disqus">
