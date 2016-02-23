@@ -140,7 +140,8 @@ Template.blogShowBody.helpers
     title: post.title,
     excerpt: post.excerpt,
     description: post.description,
-    author: post.authorName(),
+    # author: post.authorName(),
+    author: 'bridges_land',
     thumbnail: post.thumbnail()
 
 Template.blogShowFeaturedImage.events
