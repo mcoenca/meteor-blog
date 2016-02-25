@@ -48,7 +48,7 @@ Package.onUse(function(api) {
     'reactive-var',
     'less',
     'aslagle:reactive-table@0.5.5',
-    'liberation:shareit@1.0.1',
+    'liberation:shareit@1.1.1',
     'flawless:meteor-toastr@1.0.1'
   ], 'client');
 
