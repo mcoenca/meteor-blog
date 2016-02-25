@@ -51,6 +51,7 @@ if Meteor.isClient
     syntaxHighlightingTheme: 'github'
     cdnFontAwesome: true
     s3imageUrlTransform: (S3FsFile) -> S3FsFile.url()
+    dateFormat: 'MMM Do, YYYY'
     comments:
       allowAnonymous: false
       useSideComments: false
@@ -60,6 +61,7 @@ if Meteor.isClient
     language:
       blogEmpty: 'This blog is looking pretty empty...'
       backToBlogIndex: 'Back to the Blog'
+      loadMore: 'Load More'
       tags: 'Tags'
       slug: 'Slug'
       metaDescription: 'Meta Description'
