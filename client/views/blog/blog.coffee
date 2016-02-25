@@ -142,6 +142,9 @@ Template.blogShowBody.helpers
     description: post.description,
     # author: post.authorName(),
     author: 'bridges_land',
+    facebook: {
+      author: 'overbridges'
+    }
     thumbnail: post.thumbnail()
 
 Template.blogShowFeaturedImage.events
