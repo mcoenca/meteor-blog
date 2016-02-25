@@ -50,6 +50,7 @@ if Meteor.isClient
     syntaxHighlighting: false
     syntaxHighlightingTheme: 'github'
     cdnFontAwesome: true
+    s3imageUrlTransform: (S3FsFile) -> S3FsFile.url()
     comments:
       allowAnonymous: false
       useSideComments: false

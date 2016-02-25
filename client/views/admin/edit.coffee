@@ -261,7 +261,7 @@ Template.blogAdminEdit.events
         Tracker.autorun (c) ->
           theFile = Blog.S3Files.find({_id: fileObj._id}).fetch()[0]
           if theFile.isUploaded() and theFile.url?()
-            Session.set 'blog.featuredImage', theFile.url()
+            Session.set 'blog.featuredImage', Blog.settings.s3imageUrlTransform(theFile, true)
             toastr.success Blog.settings.language.editFeaturedImageSaved
             c.stop()
     # Local Filestore

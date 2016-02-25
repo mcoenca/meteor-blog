@@ -42,7 +42,6 @@ Package.onUse(function(api) {
   // PACKAGES FOR CLIENT
 
   api.use([
-    'bridges:thumbor',
     'session',
     'templating',
     'tracker',

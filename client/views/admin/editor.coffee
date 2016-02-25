@@ -42,7 +42,7 @@ class @BlogEditor extends MediumEditor
                         # cooler than that so pretend this came from a server
                         self.uploadDone e,
                           result:
-                            files: [ url: theFile.url() ]
+                            files: [ url: Blog.settings.s3imageUrlTransform(theFile) ]
                           context: data.context
                         c.stop()
               # Use Local Filestore
