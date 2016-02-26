@@ -97,7 +97,12 @@ class Blog.Post extends Minimongoid
     @body
 
   thumbnail: ->
-    if @featuredImage?
+    if @metaImage?
+      if Meteor.settings?.public?.blog?.useS3
+        @metaImage
+      else
+        Meteor.absoluteUrl() + @metaImage.slice(1)
+    else if @featuredImage?
       if Meteor.settings?.public?.blog?.useS3
         @featuredImage
       else
