@@ -140,11 +140,13 @@ Template.blogShowBody.helpers
     title: post.title,
     excerpt: post.excerpt,
     description: post.description,
-    # author: post.authorName(),
-    author: 'bridges_land',
+    author: post.authorName(),
+    twitter:{
+      author: 'bridges_land',
+    },
     facebook: {
       author: 'overbridges'
-    }
+    },
     thumbnail: post.thumbnail()
 
 Template.blogShowFeaturedImage.events
